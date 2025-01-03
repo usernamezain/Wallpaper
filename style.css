@@ -316,3 +316,25 @@
     height: 80vh;
   }
 }
+/*to mobile switcher from desktop on mobile*/
+
+@media (min-width: 1024px) {
+  #responsive-on {
+    display: block;
+  }
+  #responsive-off {
+    display: none;
+  }
+}
+
+
+/*to desktop switcher on mobile*/
+
+@media (max-width: 1024px) {
+  #responsive-on {
+    display: none;
+  }
+  #responsive-off {
+    display: block;
+  }
+}
