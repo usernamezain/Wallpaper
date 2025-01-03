@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  color: white;
+  font-weight: bold;
+}
+
+.maincard,
+.incomingcard {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 3;
+}
+
+.image-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.maincard > img,
+.incomingcard > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Top section */
+.top {
+  width: calc(100% - 40px);
+  height: 91vh;
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prflimg {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.prflimg:hover {
+  animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+.navbar > h3 {
+  font-size: 35px;
+  font-family: monospace;
+  filter: drop-shadow(3px 3px 10px black);
+}
+
+.prflimg > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tags {
+  display: flex;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.tag {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.5vw 1vw;
+  border-radius: 12px;
+  display: flex;
+}
+
+.tag:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
+}
+
+.tag:not(:first-child) {
+  margin-left: 40px;
+}
+
+.tag > i,
+.tag > h3 {
+  font-size: 20px;
+  font-style: normal;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttons > button {
+  padding: 1.5vw 2.5vw;
+  outline: none;
+  transition: 0.5s ease-in-out;
+  font-weight: bolder;
+  border: none;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.next-btn {
+  background: rgb(255, 28, 28);
+  cursor: pointer;
+}
+
+.next-btn:hover {
+  background: red;
+  color: white;
+}
+
+.download-btn {
+  background: rgb(255, 255, 45);
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+}
+
+.download-icon {
+  transition: 0.2s ease;
+}
+
+.download-btn:hover {
+  background: rgb(230, 230, 22);
+  color: black;
+}
+
+.download-btn:hover .download-icon {
+  color: white;
+}
+
+/* for animating overflow */
+.overflow-hiden {
+  overflow: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .top {
+    padding: 10px;
+  }
+
+  .navbar > h3 {
+    font-size: 30px;
+  }
+
+  .prflimg {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .buttons > button {
+    font-size: 25px;
+    padding: 1.5vw 2vw;
+  }
+
+  .tags {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .tag {
+    margin-bottom: 10px;
+  }
+
+  .maincard,
+  .incomingcard {
+    height: 90vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    padding: 15px;
+  }
+
+  .navbar > h3 {
+    font-size: 28px;
+  }
+
+  .prflimg {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .buttons > button {
+    font-size: 22px;
+    padding: 1.5vw 2vw;
+  }
+
+  .tags {
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .tag {
+    margin-bottom: 15px;
+    margin-left: 0;
+  }
+
+  .next-btn,
+  .download-btn {
+    width: 100%;
+    padding: 2vw 4vw;
+  }
+
+  .maincard,
+  .incomingcard {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .top {
+    padding: 10px;
+  }
+
+  .navbar > h3 {
+    font-size: 14px;
+  }
+
+  .prflimg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .buttons > button {
+    font-size: 18px;
+    padding: 3vw 6vw;
+  }
+
+  .tags {
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .tag {
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+
+  .next-btn,
+  .download-btn {
+    width: 100%;
+    padding: 3vw 6vw;
+  }
+
+  .maincard,
+  .incomingcard {
+    height: 80vh;
+  }
+}
